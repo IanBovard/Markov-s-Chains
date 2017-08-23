@@ -1,4 +1,4 @@
-import React from 'react';
+npm stimport React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 

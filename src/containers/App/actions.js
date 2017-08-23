@@ -2,6 +2,7 @@ export const GET_TEXT = 'GET_TEXT'
 export const ADD_TEXT = 'ADD_TEXT'
 export const EDIT_TEXT = 'EDIT_TEXT'
 export const DELETE_TEXT = 'DELETE_TEXT'
+export const OP_PING = 'OP_PING'
 
 
 export const getText = () => {
@@ -36,6 +37,7 @@ export const addText = (text) => {
     })
   }
 }
+
 
 /*export function editCard(card) {
   return { type: EDIT_CARD,
