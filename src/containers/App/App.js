@@ -6,10 +6,12 @@ import InventoryContainer from '../inventoryContainer'
 
 const App = () => (
   <div className="mainContainer">
-  <CellPhoneContainer/>
+  <div className="visualContainer">
   <GraphicsContainer/>
   <InventoryContainer/>
   <StoryContainer/>
+  </div>
+  <CellPhoneContainer/>
   </div>
 )
 

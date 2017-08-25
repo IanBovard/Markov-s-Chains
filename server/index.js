@@ -20,6 +20,7 @@ let tuples = [];
 
 wss.on('connection', function connection(ws, req) {
   console.log("connected");
+  let userId = ws._ultron.id;
   users.push(ws);
   for (let i = 0; i< users.length; i++){
     console.log("id",users[i]._ultron.id);
@@ -83,7 +84,8 @@ wss.on('connection', function connection(ws, req) {
 
   ws.send(
     JSON.stringify({
-      OP: 'SUCCESSFUL_CONNECTION'
+      OP: 'SUCCESSFUL_CONNECTION',
+      userId
     })
     );
 });

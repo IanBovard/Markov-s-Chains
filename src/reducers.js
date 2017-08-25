@@ -1,6 +1,6 @@
-import { GET_TEXT, ADD_TEXT, EDIT_TEXT, DELETE_TEXT, MESSAGE_SEND, USER_CONNECT, MESSAGE_RECEIVED } from './actions';
+import { GET_TEXT, ADD_TEXT, EDIT_TEXT, DELETE_TEXT, MESSAGE_SEND, USER_CONNECT, MESSAGE_RECEIVED, SUCCESSFUL_CONNECTION, CREATE_USERNAME } from './actions';
 
-let initialState = { messages:[] };
+let initialState = { userData:[] };
 
 const textReducers = (state = initialState, action) => {
   switch (action.type) {
@@ -20,18 +20,42 @@ const textReducers = (state = initialState, action) => {
       return state;
     case MESSAGE_RECEIVED:
       return messageReceived(state, action);
+    case CREATE_USERNAME:
+      return createUsername(state, action);
     default:
       return state;
   }
 }
 
 function messageReceived(state, action) {
+
   let messagePayload = JSON.parse(action.payload);
+  if(messagePayload.OP === SUCCESSFUL_CONNECTION){
+    localStorage.setItem("id", messagePayload.userId)
+
+    return {
+    userData: [
+    ...state.userData
+    ]
+  }
+  }else {
   return {
-    messages: [
-    ...state.messages,
+    userData: [
+    ...state.userData,
     messagePayload.message
     ]
+  }
+}
+}
+
+
+function createUsername(state, action) {
+  localStorage.setItem("username", action.payload.username)
+  return {
+    userData: [
+    ...state.userData,
+    {id: localStorage.id,
+    username: localStorage.username}]
   }
 }
 /*function getText(state, action){

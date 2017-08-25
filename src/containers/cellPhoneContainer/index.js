@@ -10,10 +10,7 @@ class CellPhoneContainer extends Component {
       username: ''
     }
   }
-  componentWillMount() {
-  }
-  componentDidMount() {
-  }
+
   messageSend(e){
     e.preventDefault()
     this.props.messageSend(this.state)
