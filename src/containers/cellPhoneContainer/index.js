@@ -6,7 +6,8 @@ class CellPhoneContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ''
+      message: '',
+      username: ''
     }
   }
 
@@ -18,6 +19,9 @@ class CellPhoneContainer extends Component {
   messageInput(e){
     this.setState({ message: e.target.value })
   }
+  usernameInput(e){
+    this.setState({username: e.target.value})
+  }
   render() {
     return (
     <div className="cellPhoneContainer">
@@ -26,10 +30,13 @@ class CellPhoneContainer extends Component {
           <p className="message">{message}</p>
           ))}
       </div>
+      <form onSubmit={ this.messageSend.bind(this) }>
+      <input type="text" value={this.state.username} onChange={this.usernameInput.bind(this)} />
       <textarea className="chatInput" placeholder="message your friends" value={ this.state.message } onChange={ this.messageInput.bind(this) }>
       </textarea>
-      <button type="submit" className="sendButton" onClick={ this.messageSend.bind(this) }>Send Message
+      <button type="submit" className="sendButton">Send Message
       </button>
+      </form>
     </div>
       )
   }
@@ -54,3 +61,4 @@ CellPhoneContainer = connect(
   )(CellPhoneContainer)
 
 export default CellPhoneContainer;
+

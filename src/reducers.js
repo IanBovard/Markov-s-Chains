@@ -22,7 +22,6 @@ const textReducers = (state = initialState, action) => {
       return messageReceived(state, action);
     case CREATE_USERNAME:
       return createUsername(state, action);
-     // return state;
     default:
       return state;
   }

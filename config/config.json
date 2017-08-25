@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "playerOne",
+    "username": "gameMaster",
     "password": "password",
     "database": "markov_chains",
     "host": "127.0.0.1",
